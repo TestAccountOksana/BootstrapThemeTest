@@ -1,3 +1,13 @@
+/* Main css file */
+@import "../../node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+/* Import files, variables, mixins */
+@import "variables";
+@import "mixins";
+@import "base";
+@import "header";
+@import "footer";
+
+/* Start styles */
 .body {
   color: #0000fe;
   a {
