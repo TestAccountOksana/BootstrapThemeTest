@@ -1,10 +1,12 @@
 /**
  * Created by oksana on 13.05.17.
  */
+/*Installed modules*/
 var gulp = require('gulp'),
     sass = require('gulp-sass'),
     autoprefixer = require('gulp-autoprefixer'),
     minifycss = require('gulp-minify-css'),
+    sourcemaps = require('gulp-sourcemaps'),
 
     imagemin = require('gulp-imagemin'),
 
@@ -17,11 +19,9 @@ var gulp = require('gulp'),
 
 /*The main task to watch changes in css, html, js*/
 gulp.task('serve', ['scss'], function() {
-
     browserSync.init({
         server: "./"
     });
-
     gulp.watch("./resourses/scss/*.scss", ['scss']);
     gulp.watch("./resourses/js/*.js", ['compressjs']);
     gulp.watch("./*.html").on('change', browserSync.reload);
@@ -31,6 +31,7 @@ gulp.task('serve', ['scss'], function() {
 gulp.task('scss', function() {
     gulp.src('./resourses/scss/*.scss')
         .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.init())
         .pipe(autoprefixer(
             'last 2 version',
             'safari 5',
@@ -48,9 +49,10 @@ gulp.task('scss', function() {
 /*Task to minify js*/
 gulp.task('compressjs', function (cb) {
     pump([
-            gulp.src('./resourses/js/*.js'),
-            rename({ suffix: '.min' }),
-            uglify(),
+        gulp.src('./resourses/js/*.js'),
+        rename({ suffix: '.min' }),
+        sourcemaps.init(),
+        uglify(),
             gulp.dest('./public/js/')
         ],
         cb
