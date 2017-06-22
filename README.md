@@ -1,4 +1,8 @@
 # bootstrapTheme
+Check if installed globally or install
+1) npm install -g gulp 
+
+
 
 Project setup:
 1) crete folder

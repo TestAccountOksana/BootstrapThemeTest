@@ -22,11 +22,14 @@
     "font-awesome": "^4.7.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-imagemin": "^3.3.0",
     "gulp-livereload": "^3.8.1",
     "gulp-minify-css": "^1.2.4",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "jquery": "^3.2.1"
+    "gulp-uglify": "^3.0.0",
+    "jquery": "^3.2.1",
+    "pump": "^1.0.2"
   },
   "dependencies": {
     "bootstrap-sass": "^3.3.7"
